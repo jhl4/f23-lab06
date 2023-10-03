@@ -18,16 +18,18 @@ public class Records {
     /**
      * Adds a frogger's record.
      *
-     * @param firstName   first name of the frogger
-     * @param lastName    last name of the frogger
-     * @param phoneNumber phone number of the frogger
-     * @param zipCode     zip code of the frogger
-     * @param state       state of the frogger
-     * @param gender      gender of the frogger
+     * @param id The id of the Frogger
      * @return Return false if the record has existed. Else, return true.
      */
-    public boolean addRecord(String firstName, String lastName, String phoneNumber,
-                             String zipCode, String state, String gender) {
+    public boolean addRecord(FroggerID id) {
+
+        String firstName = id.firstName();
+        String lastName = id.lastName();
+        String phoneNumber = id.phoneNumber();
+        String zipCode = id.zipCode();
+        String state = id.state();
+        String gender = id.gender();
+
         for (String[] row : this.records) {
             if (row[0].equals(firstName)
                     && row[1].equals(lastName)
