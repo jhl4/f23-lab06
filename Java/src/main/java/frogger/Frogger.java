@@ -30,7 +30,7 @@ public class Frogger {
      */
     public boolean move(boolean forward) {
         int nextPosition = this.position + (forward ? 1 : -1);
-        if (!isValid(nextPosition) || isOccupied(nextPosition)) {
+        if (!isValid(nextPosition) || road.isOccupied(nextPosition)[position]) {
             return false;
         }
         this.position = nextPosition;
@@ -40,13 +40,13 @@ public class Frogger {
     // TODO: Do you notice any issues here?
     // The issue was feature envy / inappropriate intimacy. A road object is part of the field for the Froggy object, thus the
     // road object should be in charge of the method of determining if the road is occupied. 
-    public boolean isOccupied(int position) {
-        return road.isOccupied(position);
-    }
+    // public boolean isOccupied(int position) {
+    //     return road.isOccupied(position);
+    // }
     
     public boolean isValid(int position) {
         if (position < 0) return false;
-        boolean[] occupied = this.road.getOccupied();
+        boolean[] occupied = this.road.isOccupied(position);
         return position < occupied.length;
     }
 

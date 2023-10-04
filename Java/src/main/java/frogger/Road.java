@@ -12,8 +12,8 @@ public class Road {
         this.occupied = occupied;
     }
 
-    public boolean isOccupied(int position) {
-        return occupied[position];
+    public boolean[] isOccupied(int position) {
+        return occupied;
     }
         
     public boolean[] getOccupied() {
